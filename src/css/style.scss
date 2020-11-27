@@ -1,6 +1,16 @@
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+/*
+*  配色方案
+*/
+
+$primary:#33CC99;
+$secendly:#336699;
+$surface:#fff;
+$background:#666;
+$error:#B00020;
+
+/*
+*  整体
+*/
 
 body {
     background: #fff;
@@ -9,13 +19,13 @@ body {
 }
 
 a {
-    color: #2dc997;
+    color: $primary;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: #2dca98;
+    color: $primary;
     outline: none;
     text-decoration: none;
 }
@@ -38,25 +48,11 @@ h6 {
 }
 
 
-/* Prelaoder */
-
-#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    /*background: #fff url("../assets/img/preloader.svg") no-repeat center center;*/
-}
-
-
 /* Back to top button */
 
 .back-to-top {
     position: fixed;
-    display: none;
+    //display: none;
     background: rgba(0, 0, 0, 0.2);
     color: #fff;
     padding: 6px 12px 9px 12px;
@@ -80,25 +76,14 @@ h6 {
 }
 
 .back-to-top:hover {
-    background: #2dc997;
+    background: $primary;
     color: #fff;
 }
 
 
-/*--------------------------------------------------------------
-  # Disable AOS delay on mobile
-  --------------------------------------------------------------*/
-
-@media screen and (max-width: 768px) {
-    [data-aos-delay] {
-        transition-delay: 0 !important;
-    }
-}
-
-
-/*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
+/*
+* Header
+*/
 
 #header {
     padding: 30px 0;
@@ -226,25 +211,26 @@ h6 {
 
 /* Nav Meu Container */
 
-#nav-menu-container {
+.nav-menu-container {
     float: right;
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    #nav-menu-container {
+
+/*@media (max-width: 768px) {
+    .nav-menu-container {
         display: none;
     }
-}
+}*/
 
 
 /* Nav Meu Styling */
 
 .nav-menu a {
-    padding: 0 8px 10px 8px;
+    padding: 0 10px 10px 10px;
     text-decoration: none;
     display: inline-block;
-    color: #000;
+    color: #fff;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -263,7 +249,7 @@ h6 {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #2dc997;
+    background-color: $primary;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
@@ -299,7 +285,7 @@ h6 {
 }
 
 .nav-menu ul li a:hover {
-    background: #2dc997;
+    background: $primary;
     color: #fff;
 }
 
@@ -330,7 +316,7 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    #mobile-nav-toggle {
+    .mobile-nav-toggle {
         display: inline;
     }
 }
@@ -338,7 +324,7 @@ h6 {
 
 /* Mobile Nav Styling */
 
-#mobile-nav {
+.mobile-nav {
     position: fixed;
     top: 0;
     padding-top: 18px;
@@ -351,17 +337,17 @@ h6 {
     transition: 0.4s;
 }
 
-#mobile-nav ul {
+.mobile-nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-#mobile-nav ul li {
+.mobile-nav ul li {
     position: relative;
 }
 
-#mobile-nav ul li a {
+.mobile-nav ul li a {
     color: #fff;
     font-size: 16px;
     overflow: hidden;
@@ -373,15 +359,15 @@ h6 {
     outline: none;
 }
 
-#mobile-nav ul li a:hover {
+.mobile-nav ul li a:hover {
     color: #fff;
 }
 
-#mobile-nav ul li li {
+.mobile-nav ul li li {
     padding-left: 30px;
 }
 
-#mobile-nav ul .menu-has-children i {
+.mobile-nav ul .menu-has-children i {
     position: absolute;
     right: 0;
     z-index: 99;
@@ -390,12 +376,12 @@ h6 {
     color: #fff;
 }
 
-#mobile-nav ul .menu-has-children i.fa-chevron-up {
-    color: #2dc997;
+.mobile-nav ul .menu-has-children i.fa-chevron-up {
+    color: $primary;
 }
 
-#mobile-nav ul .menu-item-active {
-    color: #2dc997;
+.mobile-nav ul .menu-item-active {
+    color: $primary;
 }
 
 #mobile-body-overly {
@@ -416,7 +402,7 @@ body.mobile-nav-active {
     overflow: hidden;
 }
 
-body.mobile-nav-active #mobile-nav {
+body.mobile-nav-active .mobile-nav {
     left: 0;
 }
 

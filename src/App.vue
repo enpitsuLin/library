@@ -2,16 +2,21 @@
   <div>
     <Header />
     <router-view></router-view>
+    <div style="height:100vh"></div>
+    <div style="height:100vh"></div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
+import Header from "@/components/Header";
 export default {
   components: {
-    Header
-  }
-}
+    Header,
+  },
+  methods: {
+
+  },
+};
 </script>
 
 <style lang="scss">
@@ -22,18 +27,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

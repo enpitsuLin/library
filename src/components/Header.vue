@@ -1,16 +1,23 @@
 <template>
   <div>
     <button type="button" id="mobile-nav-toggle">
-      <i class="fa fa-bars"></i>
-      <font-awesome-icon icon="bars"></font-awesome-icon>
+      <i class="fa fa-bars">
+        <font-awesome-icon icon="bars"></font-awesome-icon>
+      </i>
     </button>
-    <header id="header" class="header-transparent">
+    <header
+      id="header"
+      :class="['header-transparent', scrollTop > 100 && 'header-fixed']"
+    >
       <div class="container">
         <div id="logo" class="pull-left">
-          <a href="#"></a>
+          <a href="#">NBBFU lib</a>
         </div>
-        <nav id="nav-menu-container" :class="isMoblie && 'isMoblie'">
-          <ul class="nav-menu">
+        <nav
+          :class="[!isMobile && 'nav-menu-container', isMobile && 'mobile-nav']"
+          :style="isMobile && collapsed && 'left:0'"
+        >
+          <ul :class="[!isMobile && 'nav-menu']">
             <router-link
               v-for="item in menus"
               :key="item.name"
@@ -25,6 +32,11 @@
         </nav>
       </div>
     </header>
+    <a href="#" v-on:click="toTop" class="back-to-top" v-show="scrollTop > 250">
+      <i class="fa fa-chevron-up">
+        <font-awesome-icon icon="chevron-up"></font-awesome-icon>
+      </i>
+    </a>
   </div>
 </template>
 
@@ -34,16 +46,31 @@ import { routerMap } from "../router/setting";
 export default {
   data() {
     return {
+      collapsed: false,
+      scrollTop: 0,
       menus: [],
     };
   },
+  methods: {
+    toTop() {
+      console.log("111");
+    },
+  },
   computed: {
-    isMoblie() {
-      return this.$store.state.isMoblie;
+    isMobile() {
+      return this.$store.state.isMobile;
     },
   },
   created() {
     this.menus = routerMap;
+  },
+  mounted() {
+    window.addEventListener("scroll", () => {
+      this.scrollTop =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        window.pageYOffset;
+    });
   },
 };
 </script>
