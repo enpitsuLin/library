@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isMobile: true
   },
   mutations: {
+    change_device (state) {
+      state.isMobile = !state.isMobile
+    }
   },
   actions: {
+    CHANGE_DEVICE ({ commit }) { commit('change') }
   },
-  modules: {
-  }
+  modules: {}
 })
