@@ -11,27 +11,27 @@ export const routerMap = [
     {
         path: '/resuorce',
         name: 'Resuorce',
-        meta: { name: '资源' }
+        meta: { name: '文献资源' }
     },
     {
         path: '/lent',
         name: 'Lent',
-        meta: { name: '借阅' }
+        meta: { name: '借阅服务' }
     },
     {
         path: '/study',
         name: 'Study',
-        meta: { name: '学习' }
+        meta: { name: '学习支持' }
     },
     {
         path: '/reseach',
         name: 'Reseach',
-        meta: { name: '研究' }
+        meta: { name: '研究支持' }
     },
     {
         path: '/scholar',
         name: 'Scholar',
-        meta: { name: '学术' }
+        meta: { name: '互动交流' }
     },
     {
         path: '/about',

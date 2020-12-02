@@ -1,79 +1,49 @@
 <template>
-  <div>
-    <button type="button" id="mobile-nav-toggle">
-      <i class="fa fa-bars">
-        <font-awesome-icon icon="bars"></font-awesome-icon>
-      </i>
-    </button>
-    <header
-      id="header"
-      :class="['header-transparent', scrollTop > 100 && 'header-fixed']"
-    >
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <a href="#">NBBFU lib</a>
-        </div>
-        <nav
-          :class="[!isMobile && 'nav-menu-container', isMobile && 'mobile-nav']"
-          :style="isMobile && collapsed && 'left:0'"
-        >
-          <ul :class="[!isMobile && 'nav-menu']">
-            <router-link
-              v-for="item in menus"
-              :key="item.name"
-              :to="item.path"
-              v-slot="{ href, route, isExactActive }"
-            >
-              <li :class="[isExactActive && 'menu-active']">
-                <a :href="href">{{ route.meta.name }}</a>
-              </li>
-            </router-link>
-          </ul>
-        </nav>
+  <div class="header">
+    <div class="top-right">
+      <div class="top-item">
+        <i class="fa fa-user" />
+        <a href="">我的图书馆</a>
       </div>
-    </header>
-    <a href="#" v-on:click="toTop" class="back-to-top" v-show="scrollTop > 250">
-      <i class="fa fa-chevron-up">
-        <font-awesome-icon icon="chevron-up"></font-awesome-icon>
-      </i>
-    </a>
+      <div class="top-item">
+        <i class="fa fa-info-circle" />
+        <a href="">咨询</a>
+      </div>
+      <div class="top-item">
+        <i class="fa fa-gift" />
+        <a href="">捐赠</a>
+      </div>
+      <div class="top-item">
+        <i class="fa fa-clock" />
+        <a href="">今日开馆: 6:30~22:30</a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { routerMap } from "../router/setting";
-
-export default {
-  data() {
-    return {
-      collapsed: false,
-      scrollTop: 0,
-      menus: [],
-    };
-  },
-  methods: {
-    toTop() {
-      console.log("111");
-    },
-  },
-  computed: {
-    isMobile() {
-      return this.$store.state.isMobile;
-    },
-  },
-  created() {
-    this.menus = routerMap;
-  },
-  mounted() {
-    window.addEventListener("scroll", () => {
-      this.scrollTop =
-        document.documentElement.scrollTop ||
-        document.body.scrollTop ||
-        window.pageYOffset;
-    });
-  },
-};
+export default {};
 </script>
 
-<style>
+<style lang="scss">
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 15px;
+  .top-right {
+    padding-top: 14px;
+    line-height: 1;
+    .top-item {
+      float: right;
+      color: #fff;
+      margin-right: 32px;
+      a {
+        color: #fff;
+        &:hover {
+          text-decoration: underline #fff;
+        }
+      }
+    }
+  }
+}
 </style>
